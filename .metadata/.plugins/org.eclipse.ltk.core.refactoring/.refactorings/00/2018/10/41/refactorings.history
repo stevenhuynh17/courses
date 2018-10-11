@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;cipher.Assignment.java&apos; to &apos;CaesarCipher.java&apos;&#x0A;- Original project: &apos;00&apos;&#x0A;- Original element: &apos;cipher.Assignment.java&apos;&#x0A;- Renamed element: &apos;cipher.CaesarCipher.java&apos;" description="Rename compilation unit &apos;Assignment.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;cipher{Assignment.java" name="CaesarCipher.java" references="false" stamp="1539296849327" version="1.0"/>
+</session>
