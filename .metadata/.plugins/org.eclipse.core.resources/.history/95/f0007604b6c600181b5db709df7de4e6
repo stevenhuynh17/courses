@@ -1,0 +1,18 @@
+package playground;
+// Take an array of int, output in sorted order
+
+class Water {
+	
+}
+
+public class inClass {
+	public static void main(String[] args) {
+		sort(null);
+	}
+	
+	public static int[] sort(int[] input) {
+		int[] output;
+		System.out.println("TESTING");
+		return null;
+	}
+}
