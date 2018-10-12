@@ -13,12 +13,10 @@ public class inClass {
 	
 	public static int[] sort(int[] input) {
 		int[] output;
-		
+		System.out.println("TESTING");
 		for(int i = 0; i < input.length; i++) {
 			System.out.println(input[i]);
 		}
-		// Keep track of lowest number and push it into the output
-		// 
 		return null;
 	}
 }
