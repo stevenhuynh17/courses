@@ -12,19 +12,15 @@ public class CaesarCipher {
 		
 		for(int i = 0; i < message.length(); i++) {
 			int ascii = (int) message.toLowerCase().charAt(i);
-			
-			if(ascii > 122 || ascii < 97) {
-				continue;
-			} else {
-				if(ascii >= 122) {
-					ascii -= 26;
-				}
-				
-				int update_ASCII = ascii + shiftAmount;
-				String update_letter = Character.toString((char)update_ASCII);
-				
-				output = output + update_letter;
+
+			if(ascii >= 122) {
+				ascii -= 26;
 			}
+			
+			int update = ascii + shiftAmount;
+//			output = output;
+//			System.out.println(Character.toString((char)update));
+			System.out.println(output);
 		}
         // for each character, c in message:
         //   if c >= 'a' and <= 'z'
@@ -41,12 +37,11 @@ public class CaesarCipher {
         // Read shiftAmount from args[0]
         // for each arg in args[1], args[2], etc.:
         //   print caesarCipher(...)
-    	if(args.length > 1) {
-    		Integer shiftAmount = Integer.valueOf(args[0]);
-    		for(int i = 1; i < args.length; i++) {
-    			System.out.println(caesarCipher(args[i], shiftAmount));
-    		}
+//    	Integer shiftAmount = Integer.valueOf(args[0]);
+    	
+    	for(int i = 0; i < args.length; i++) {
+    		
     	}
-    	System.out.println(caesarCipher("z!z", 2));
+    	caesarCipher("zz", 2);
     }
 }
