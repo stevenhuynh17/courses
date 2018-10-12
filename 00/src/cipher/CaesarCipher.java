@@ -9,9 +9,16 @@ public class CaesarCipher {
     // caesarCipher("cd za!\n", -2).equals("ab xy!\n")
     public static String caesarCipher(String message, int shiftAmount) {
 		String output = "";
+		
 		for(int i = 0; i < message.length(); i++) {
-			int ascii = (int) message.charAt(i);
-			System.out.println(Character.toString((char)ascii));
+			int ascii = (int) message.toLowerCase().charAt(i);
+
+			if(ascii >= 122) {
+				ascii -= 26;
+			}
+			
+			int update = ascii + shiftAmount;
+			System.out.println(Character.toString((char)update));
 		}
         // for each character, c in message:
         //   if c >= 'a' and <= 'z'
@@ -28,6 +35,11 @@ public class CaesarCipher {
         // Read shiftAmount from args[0]
         // for each arg in args[1], args[2], etc.:
         //   print caesarCipher(...)
-    	caesarCipher("test", 2);
+    	Integer shiftAmount = Integer.valueOf(args[0]);
+    	
+    	for(int i = 0; i < args.length; i++) {
+    		
+    	}
+    	caesarCipher("zz", 2);
     }
 }
