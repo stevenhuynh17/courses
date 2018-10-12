@@ -14,8 +14,6 @@ public class CaesarCipher {
 			int ascii = (int) message.toLowerCase().charAt(i);
 			
 			if(ascii > 122 || ascii < 97) {
-				String unmodified = Character.toString((char)ascii);
-				output = output + unmodified;
 				continue;
 			} else {
 				if(ascii >= 122) {
