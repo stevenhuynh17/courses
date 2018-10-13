@@ -5,22 +5,20 @@ public class CaesarCipher {
 		String output = "";
 		
 		for(int i = 0; i < message.length(); i++) {
-			// Convert each letter into ascii. Establish remainder based on ascii table.
 			int ascii = (int) message.toLowerCase().charAt(i);
 			int updated_shift = shiftAmount % 255;
 			
-			// Narrow down the range of letters targeted from ascii table.
 			if(ascii > 122 || ascii < 97) {
 				String unmodified = Character.toString((char)ascii);
 				output = output + unmodified;
 				continue;
 			} else {
-				// Restrict ascii to affect only A-Z alphabet
-				if(ascii > 26) {
+				if(ascii > 100) {
+					
 					updated_shift = updated_shift % 26;
+					System.out.println(updated_shift);
 				}
 				
-				// Shift values and output result
 				int update_ASCII = ascii + updated_shift;
 				if(update_ASCII > 122) {
 					update_ASCII -= 26;
@@ -42,8 +40,6 @@ public class CaesarCipher {
     			System.out.println(caesarCipher(args[i], shiftAmount));
     		}
     	}
-    	System.out.println("12345: " + caesarCipher("ab xy!\n", 12345));
-    	System.out.println("127657345: " + caesarCipher("ab xy!\n", 127657345));
-    	System.out.println("-127657345: " + caesarCipher("ab xy!\n", -127657345));
+    	System.out.println(caesarCipher("ab xy!\n", 12345));
     }
 }
