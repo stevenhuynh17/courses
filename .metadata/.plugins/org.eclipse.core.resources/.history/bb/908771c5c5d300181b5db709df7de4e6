@@ -46,7 +46,7 @@ public class CaesarCipher {
     			System.out.println(caesarCipher(args[i], shiftAmount));	
     		}
     	}
-//    	System.out.println("10: " + caesarCipher("ab !xy!\n", 1234567));
-//    	System.out.println("10: " + caesarCipher("JK !GH!\n", -1234567));
+    	System.out.println("10: " + caesarCipher("ab !xy!\n", 2));
+    	System.out.println("10: " + caesarCipher("AB !XY!\n", 2));
     }
 }
