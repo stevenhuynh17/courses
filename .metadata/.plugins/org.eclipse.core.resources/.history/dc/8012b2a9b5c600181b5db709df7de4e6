@@ -1,7 +1,0 @@
-package playground;
-
-public class inClass {
-	public static void main(String[] args) {
-		System.out.println("TESTING");
-	}
-}
