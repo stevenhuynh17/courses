@@ -35,16 +35,6 @@ public class RegularPolygon extends Drawable {
 
     public void rotateAboutOrigin(double radians) {
         // TODO
-    	for(int i = 0; i < coords.length; i++) {
-    		double x = coords[i].getX();
-    		double y = coords[i].getY();
-    		
-    		double distance = Math.sqrt(x*x + y*y);
-    		double new_angle = Math.atan2(coords[i].getY(), coords[i].getX()) + radians;
-    		
-    		coords[i] = Coord.fromAngleAndDistance(new_angle, distance);
-    	}
-    	
     	
     }
 
@@ -52,12 +42,8 @@ public class RegularPolygon extends Drawable {
         // TODO
     	for(int i = 0; i < coords.length; i++) {
     		// Get the original coordinate and double it
-    		double x = coords[i].getX();
-    		double y = coords[i].getY();
-    		
-    		double new_distance = Math.sqrt(x*x + y*y) * size;
-    		double current_angle = Math.atan2(coords[i].getY(), coords[i].getX());
-    		coords[i] = Coord.fromAngleAndDistance(current_angle, new_distance);
+    		coords[i].getX();
+    		coords[i] = coords[i].fromAngleAndDistance(coords[i].getX(), size);
     	}
     }
 }

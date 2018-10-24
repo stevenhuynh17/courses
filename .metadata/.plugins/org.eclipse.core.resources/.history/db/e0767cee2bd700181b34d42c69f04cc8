@@ -3,7 +3,6 @@ package hw02;
 
 public class Triangle extends Drawable {
     // TODO: Add members to represent the triangle
-	private Coord[] coords;
 
     public Triangle(Triangle other) {
         // TODO
@@ -20,7 +19,7 @@ public class Triangle extends Drawable {
 
     public Coord[] getCoords() {
         // TODO
-    	return coords;
+    	return null;
     }
 
     public void draw(Drawer drawer, Color color) {

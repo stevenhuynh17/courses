@@ -36,9 +36,4 @@ public class Coord {
     public String toString() {
         return String.format("(%f, %f)", getX(), getY());
     }
-
-	public static Coord origin() {
-		// TODO Auto-generated method stub
-		return new Coord(0, 0);
-	}
 }
