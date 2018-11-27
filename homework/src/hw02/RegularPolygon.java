@@ -26,11 +26,22 @@ public class RegularPolygon extends Drawable {
 
     public void draw(Drawer drawer, Color color) {
         // TODO
+    	for(int i=1; i < coords.length; i++) {
+    		drawer.drawTriangle(new Triangle(this.center, coords[i-1], coords[i]), color);
+    	}
     	
     }
 
     public void translate(Coord amount) {
         // TODO
+    	for(int i = 0; i < coords.length; i++) {
+    		double x = coords[i].getX() + amount.getX();
+    		double y = coords[i].getY() + amount.getY();
+    		
+    		double new_distance = Math.sqrt(x*x + y*y);
+    		double current_angle = Math.atan2(y, x);
+    		coords[i] = Coord.fromAngleAndDistance(current_angle, new_distance);
+    	}
     }
 
     public void rotateAboutOrigin(double radians) {
@@ -44,8 +55,6 @@ public class RegularPolygon extends Drawable {
     		
     		coords[i] = Coord.fromAngleAndDistance(new_angle, distance);
     	}
-    	
-    	
     }
 
     public void scale(double size) {

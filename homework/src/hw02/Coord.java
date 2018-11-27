@@ -2,8 +2,9 @@ package hw02;
 
 public class Coord {
     // TODO: Add the members like "double x, y" to represent this coordinate.
-	double x, y;
+	private double x, y;
 	Coord origin;
+	
 	private Coord(double x, double y) {
 		this.x = x;
 		this.y = y;

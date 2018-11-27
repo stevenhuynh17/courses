@@ -30,10 +30,6 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
             }
         }
 
-        V get(K key) {
-            return null;  // TODO
-        }
-
         void put(K key, V value) { // EDITED: The original assignment returned V, like java.util.Map
             // TODO
         	K node_key = this.key;
@@ -42,20 +38,20 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
         	int compare = key.compareTo(node_key);
         	
         	if(compare < 0) {
-        		System.out.println("GO left");
+//        		System.out.println("GO left");
         		if(this.left == null) {
         			// Make the new node if null is found
         			this.left = new Node<>(key, value);
-        			System.out.println("CREATED: " + key);
+//        			System.out.println("CREATED: " + key);
         		} else {
         			// Pass in the key and value to see if the next node has a null left
         			traverse(key, value, this.left);
         		}
         	} else if(compare > 0) {
-        		System.out.println("GO right");
+//        		System.out.println("GO right");
         		if(this.right == null) {
         			this.right = new Node<>(key, value);
-        			System.out.println("CREATED: " + key);
+//        			System.out.println("CREATED: " + key);
         		} else {
         			traverse(key, value, this.right);
         		}
@@ -67,11 +63,11 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
         	int compare = key.compareTo(x.key);
         	
         	if(compare < 0) {
-        		System.out.println("GO left");
+//        		System.out.println("GO left");
         		if(x.left == null) {
         			// Make the new node if null is found
         			x.left = new Node<>(key, value);
-        			System.out.println("CREATED: " + key);
+//        			System.out.println("CREATED: " + key);
         			return;
         		} else {
         			// Pass in the key and value to see if the next node has a null left
@@ -79,10 +75,10 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
         			return;
         		}
         	} else if(compare > 0) {
-        		System.out.println("GO right");
-        		if(this.right == null) {
+//        		System.out.println("GO right");
+        		if(x.right == null) {
         			x.right = new Node<>(key, value);
-        			System.out.println("CREATED: " + key);
+//        			System.out.println("CREATED: " + key);
         			return;
         		} else {
         			traverse(key, value, x.right);
@@ -94,7 +90,36 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
         }
         
         int size() {
-            return -1;  // TODO
+        	int count = 0;
+//          System.out.println(root.key);
+        	if(this.key != null) {
+        		count++;
+          	if(this.left != null) {
+          		count = counting(this.left, count);
+          	}
+          	
+          	if(this.right != null) {
+          		count = counting(this.right, count);
+          	}
+          }
+          return count;
+        }
+        
+        int counting(Node<K, V> x, int count) {
+//        	System.out.println(x.key);
+        	if(x.key != null) {
+        		count++;
+        		
+        		if(x.left != null) {
+            		count = counting(x.left, count);
+            	}
+            	
+            	if(x.right != null) {
+            		count = counting(x.right, count);
+            	}
+        	}
+//        	System.out.println(count);
+        	return count;
         }
 
         // Note: You do not need to implement toString, but you probably should for your own debugging.
@@ -122,9 +147,56 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
 
     @Override
     public V get(K key) {
-    	System.out.println(root.value);
-    	System.out.println(root.left.value);
+    	K current_key = root.key;
+    	
+    	if(key == current_key) {
+//    		System.out.println("FOUND");
+    		return root.value;
+    	} 
+    	
+    	if(root.left != null) {
+//    		System.out.println("SEARCHING LEFT");
+    		V result = traverse(key, root.left);
+    		if(result != null) {
+				return result;
+			}
+    	}
+    	
+    	if(root.right != null) {
+//    		System.out.println("SEARCHING RIGHT");
+    		V result = traverse(key, root.right);
+    		if(result != null) {
+				return result;
+			}
+    	}
         return null;  // TODO
+    }
+    
+    public V traverse(K key, Node<K, V> x) {
+//    	System.out.println("CURRENT NODE: " + x.key);
+		if(key == x.key) {
+//			System.out.println("FOUND");
+			return x.value;
+		}
+		
+		if(x.left != null) {
+//			System.out.println("SEARCHING LEFT");
+			V result = traverse(key, x.left);
+			if(result != null) {
+				return result;
+			}
+			
+		}
+		
+		if(x.right != null) {
+//			System.out.println("SEARCHING RIGHT BLAH");
+			V result = traverse(key, x.right);
+			
+			if(result != null) {
+				return result;
+			}
+		}
+    	return null;
     }
 
     @Override
@@ -143,7 +215,36 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
 
     @Override
     public int size() {
-        return -12345;  // TODO
+        int count = 0;
+//        System.out.println(root.key);
+        if(root.key != null) {
+        	count++;
+        	if(root.left != null) {
+        		count = counting(root.left, count);
+        	}
+        	
+        	if(root.right != null) {
+        		count = counting(root.right, count);
+        	}
+        }
+        return count;
+    }
+    
+    int counting(Node<K, V> x, int count) {
+//    	System.out.println(x.key);
+    	if(x.key != null) {
+    		count++;
+    		
+    		if(x.left != null) {
+        		count = counting(x.left, count);
+        	}
+        	
+        	if(x.right != null) {
+        		count = counting(x.right, count);
+        	}
+    	}
+//    	System.out.println(count);
+    	return count;
     }
 
     //
@@ -155,10 +256,12 @@ public class UnbalancedMap<K extends Comparable<K>, V> implements SimplerMap<K, 
     //     return root.keySet();
     // }
 
-    // @Override
-    // public void putAll(Map<? extends K, ? extends V> builtinMap) {
-    //     // TODO
-    // }
+     @Override
+     public void putAll(Map<? extends K, ? extends V> builtinMap) {
+         // TODO
+    	 System.out.println(root.value);
+    	 builtinMap.put();
+     }
 
     @Override
     public String toString() {  // NOTE: You will not be tested on .toString() but you may want to implement it so it's easier for you to debug.

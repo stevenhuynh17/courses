@@ -72,6 +72,12 @@ public class ManualTest {
             System.out.println(c);
         }
         System.out.println();
+        
+//        Triangle test = new Triangle(3);
+//        for (Coord c : t.getCoords()) {
+//            System.out.println(c);
+//        }
+//        System.out.println();
 
         // <svg viewBox="-100 -100 200 200" preserveAspectRatio="xMinYMin">
         //   <polygon points="0.0,0.0 50.0,0.0 0.0,50.0" fill="#ff7f00"/>

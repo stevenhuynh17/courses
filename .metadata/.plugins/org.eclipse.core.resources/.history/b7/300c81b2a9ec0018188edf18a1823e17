@@ -1,0 +1,11 @@
+package hw04;
+
+public class test {
+	public static void main(String[] args) {
+		String city = "Turlock city";
+		int pop = 68549;
+		UnbalancedMap<String, Integer> x = new UnbalancedMap<String, Integer>();
+		System.out.println(x);
+		x.put(city, pop);
+	}
+}

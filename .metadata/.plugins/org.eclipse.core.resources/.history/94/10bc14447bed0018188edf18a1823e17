@@ -1,0 +1,41 @@
+package hw04;
+
+public class test {
+	public static void main(String[] args) {
+		String city = "Turlock city";
+		int pop = 68549;
+		UnbalancedMap<String, Integer> um = new UnbalancedMap<>();
+		um.put("Turlock city", 68549);
+		um.put("Hughson city", 6640);
+		um.put("Taft city", 9327);
+		um.put("Balance of San Luis Obispo County", 118118);
+		um.put("Hayward city", 144186);
+		um.put("Fremont city", 214089);
+		um.put("Kerman city", 13544);
+		um.put("Chowchilla city", 18720);
+		um.put("Huntington Park city", 58114);
+		um.put("Balance of Santa Barbara County", 133417);
+		um.put("Norco city", 27063);
+		um.put("Balance of Kings County", 34166);
+		um.put("Poway city", 47811);
+		um.put("Atherton town", 6914);
+		um.put("Lindsay city", 11768);
+		um.put("Westlake Village city", 8270);
+		um.put("San Anselmo town", 12336);
+		um.put("East Palo Alto city", 28155);
+		um.put("Larkspur city", 11926);
+		um.put("West Hollywood city", 34399);
+		um.put("Fillmore city", 15002);
+		um.put("Balance of Yuba County", 56627);
+		um.put("Pico Rivera city", 62942);
+		um.put("Woodside town", 5287);
+		um.put("Tuolumne County", 55365);
+		um.put("Rio Vista city", 7360);
+		um.put("Temecula city", 100097);
+		um.put("Delano city", 53041);
+		um.put("Mono County", 14202);
+		um.put("Martinez city", 35824);
+		um.put("San Bruno city", 41114);
+		System.out.println(um.get("San Bruno city"));
+	}
+}

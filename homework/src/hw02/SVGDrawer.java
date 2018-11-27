@@ -11,9 +11,10 @@ public class SVGDrawer extends Drawer {
     }
 
     public void drawTriangle(Triangle triangle, Color color) {
-        triangle = new Triangle(triangle);
+    	triangle = new Triangle(triangle);
 
         Coord[] coords = triangle.getCoords();
+        
         String svgPolygon = String.format(
                 "  <polygon points=\"%f,%f %f,%f %f,%f\" fill=\"%s\"/>",
                 coords[0].getX(), coords[0].getY(),

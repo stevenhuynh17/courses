@@ -1,5 +1,6 @@
 package hw04;
 
+import java.util.Map;
 import java.util.Set;
 
 // Based on java.util.AbstractMap
@@ -10,4 +11,5 @@ public interface SimplerMap<K extends Comparable<K>, V> {
     public boolean isEmpty();
     public void put(K key, V value);  // EDITED: The original assignment returned V, like java.util.Map
     public int size();
+	void putAll(Map<? extends K, ? extends V> builtinMap);
 }

@@ -1,5 +1,7 @@
 package hw01;
 
+import java.io.FileNotFoundException;
+
 public class CaesarCipher {
     public static String caesarCipher(String message, int shiftAmount) {
 		String output = "";
@@ -39,7 +41,10 @@ public class CaesarCipher {
 		return output;
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws FileNotFoundException{
+    	System.out.println(Math.atan(1));
+    	System.out.println(Math.atan2(-1, -1));
+    	
     	if(args.length >= 1) {
     		int shiftAmount = Integer.valueOf(args[0]);
     		for(int i = 1; i < args.length; i++) {

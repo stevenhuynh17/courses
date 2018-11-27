@@ -1,8 +1,25 @@
 package playground;
+
+import java.util.ArrayList;
+
 // Take an array of int, output in sorted order
 
-class Water {
+class GenericCounter<E> {
+	ArrayList<GenericCountPair<E>> counts;
 	
+	GenericCounter() {
+		counts = new ArrayList<>();
+	}
+	
+	void incrementCount(E x) {
+		x++;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		return "" + counts;
+	}
 }
 
 public class inClass {

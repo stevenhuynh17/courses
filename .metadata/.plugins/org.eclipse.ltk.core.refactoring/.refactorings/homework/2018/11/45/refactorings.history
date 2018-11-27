@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;hm03&apos; to &apos;hw03&apos;&#x0A;- Original project: &apos;homework&apos;&#x0A;- Original element: &apos;homework/src/hm03&apos;&#x0A;- Renamed element: &apos;homework/src/hw03&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;hm03&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;hm03" name="hw03" qualified="false" references="true" stamp="1541585898434" textual="false" version="1.0"/>
+</session>
