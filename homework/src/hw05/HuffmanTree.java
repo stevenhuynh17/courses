@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -87,9 +88,11 @@ public class HuffmanTree {
     public HuffmanTree(InputStream input) throws IOException {
         int[] table = getFrequencyTable(input);
         List<HuffmanNode> nodes = new LinkedList<>();
+        
         for (int b = 0; b < 256; ++b) {
             nodes.add(new HuffmanNode((byte)b, table[b]));
         }
+        
         while (nodes.size() > 1) {
             HuffmanNode a = popMinimumHuffmanNode(nodes);
             HuffmanNode b = popMinimumHuffmanNode(nodes);
@@ -116,7 +119,22 @@ public class HuffmanTree {
      * @throws IOException if calling a method of input throws IOException
      */
     public static Map<Byte, Integer> getFrequencyMap(InputStream input) throws IOException {
-        return null;  // TODO
+    	Map<Byte, Integer> test = new HashMap<Byte, Integer>();
+    	int length = input.available();
+    	
+    	for(int i=0; i < length; i++) {
+    		byte key = (byte) input.read();
+
+    		if(test.get(key) == null) {
+    			test.put(key, 1);
+    		} else {
+    			int increment = test.get(key);
+    			test.put(key, ++increment);
+    		}
+    	
+    	}
+    	
+        return test;  // TODO
     }
 
     /**
@@ -129,6 +147,9 @@ public class HuffmanTree {
      * @throws IOException if calling a method of input throws IOException
      */
     public static int[] getFrequencyTable(InputStream input) throws IOException {
+    	
+    	Map<Byte, Integer> result = getFrequencyMap(input);
+    	System.out.println(result);
         return new int[256];  // TODO
     }
 
