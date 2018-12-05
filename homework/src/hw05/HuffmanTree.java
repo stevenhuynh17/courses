@@ -39,13 +39,26 @@ public class HuffmanTree {
          */
         @Override
         public int compareTo(HuffmanNode other) {
+        	int lowest = this.count;
+        	int current = other.count;
+        	
+        	if(lowest > current) {
+        		return 1;
+        	} else if(lowest < current) {
+        		return -1;
+        	} 
             return 0; // TODO
         }
 
         boolean isLeafNode() {
             // A node is a leaf node if it does not have any children.
             // left and right are always both null or both non-null.
-            return false; // TODO
+        	if(this.left == null && this.right == null) {
+        		return true;
+        	} else {
+        		return false;
+        	}
+            // TODO
         }
     }
 
@@ -90,9 +103,11 @@ public class HuffmanTree {
         List<HuffmanNode> nodes = new LinkedList<>();
         
         for (int b = 0; b < 256; ++b) {
+//        	System.out.println((byte) b);
             nodes.add(new HuffmanNode((byte)b, table[b]));
+            
+//            System.out.println(nodes.get(b).count);
         }
-        
         while (nodes.size() > 1) {
             HuffmanNode a = popMinimumHuffmanNode(nodes);
             HuffmanNode b = popMinimumHuffmanNode(nodes);
@@ -108,7 +123,21 @@ public class HuffmanTree {
      * @return
      */
     public static HuffmanNode popMinimumHuffmanNode(List<HuffmanNode> huffmanNodes) {
-        return null; // TODO
+    	HuffmanNode smallest = huffmanNodes.get(0);
+    	HuffmanNode result = null;
+    	int index = 0;
+    	for(int i=0; i<huffmanNodes.size(); i++) {
+    		HuffmanNode current = huffmanNodes.get(i);
+    		int test = smallest.compareTo(current);
+    		if(test > 0) {
+    			smallest = current;
+    			index = i;
+    		}
+    		
+    	}
+    	result = huffmanNodes.remove(index);
+
+    	return result; // TODO
     }
 
     /**
@@ -119,22 +148,22 @@ public class HuffmanTree {
      * @throws IOException if calling a method of input throws IOException
      */
     public static Map<Byte, Integer> getFrequencyMap(InputStream input) throws IOException {
-    	Map<Byte, Integer> test = new HashMap<Byte, Integer>();
+    	Map<Byte, Integer> table = new HashMap<Byte, Integer>();
     	int length = input.available();
     	
     	for(int i=0; i < length; i++) {
     		byte key = (byte) input.read();
 
-    		if(test.get(key) == null) {
-    			test.put(key, 1);
+    		if(table.get(key) == null) {
+    			table.put(key, 1);
     		} else {
-    			int increment = test.get(key);
-    			test.put(key, ++increment);
+    			int increment = table.get(key);
+    			table.put(key, ++increment);
     		}
     	
     	}
     	
-        return test;  // TODO
+        return table;  // TODO
     }
 
     /**
@@ -149,8 +178,12 @@ public class HuffmanTree {
     public static int[] getFrequencyTable(InputStream input) throws IOException {
     	
     	Map<Byte, Integer> result = getFrequencyMap(input);
-    	System.out.println(result);
-        return new int[256];  // TODO
+    	int[] data = new int[256];
+    	
+    	for(Byte key:result.keySet()) {
+    		data[key] = result.get(key);
+    	}
+        return data;  // TODO
     }
 
     /**
@@ -160,7 +193,26 @@ public class HuffmanTree {
      * @throws IOException if calling a method of toEncode throws IOException
      */
     public List<Boolean> encoded(InputStream toEncode) throws IOException {
-        return new Arraylist<>(); // TODO
+    	List<Boolean> result = new LinkedList();
+    	int length = toEncode.available();
+    	
+    	if(this.root == null) {
+    		HuffmanTree test = new HuffmanTree(toEncode);
+        	System.out.println(test.bytesToBits);
+        	for(int i=0; i<length; i++) {
+    			byte current_char = (byte) toEncode.read();
+    			List<Boolean> node = this.bytesToBits.get(current_char);
+    			result.addAll(node);
+    		}
+    	} else {
+    		for(int i=0; i<length; i++) {
+    			byte current_char = (byte) toEncode.read();
+    			List<Boolean> node = this.bytesToBits.get(current_char);
+    			result.addAll(node);
+    		}
+    	}
+		return result;
+//      TODO
     }
 
     /**
@@ -171,5 +223,29 @@ public class HuffmanTree {
      */
     public void decoded(List<Boolean> encoded, OutputStream output) throws IOException {
         // TODO
+    	System.out.println(encoded.get(0));
+    	
+    	HuffmanNode current_node = this.root;
+    	
+    	for(int i=0; i<encoded.size(); i++) {
+    		boolean navigate = encoded.get(i);
+    		
+    		if(current_node.isLeafNode()) {
+        		byte value = current_node.byteValue;
+        		output.write(value);
+        		return;
+        	} else {
+        		if(navigate == false) {
+        			current_node = current_node.left;
+        		} else {
+        			current_node = current_node.right;
+        		}
+        	}
+    	}
+    	
+    	
+    	output.write(110);
+    	
+//    	decoded(encoded, output);
     }
 }
