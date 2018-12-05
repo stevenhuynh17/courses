@@ -193,15 +193,14 @@ public class HuffmanTree {
      * @throws IOException if calling a method of toEncode throws IOException
      */
     public List<Boolean> encoded(InputStream toEncode) throws IOException {
-    	List<Boolean> result = new LinkedList();
+    	List<Boolean> result = new LinkedList<Boolean>();
     	int length = toEncode.available();
     	
     	if(this.root == null) {
-    		HuffmanTree test = new HuffmanTree(toEncode);
-        	System.out.println(test.bytesToBits);
+    		HuffmanTree backup = new HuffmanTree(toEncode);
         	for(int i=0; i<length; i++) {
     			byte current_char = (byte) toEncode.read();
-    			List<Boolean> node = this.bytesToBits.get(current_char);
+    			List<Boolean> node = backup.bytesToBits.get(current_char);
     			result.addAll(node);
     		}
     	} else {
@@ -211,6 +210,7 @@ public class HuffmanTree {
     			result.addAll(node);
     		}
     	}
+//    	System.out.println(result);
 		return result;
 //      TODO
     }
@@ -222,29 +222,36 @@ public class HuffmanTree {
      * @throws IOException if calling a method of output throws IOException
      */
     public void decoded(List<Boolean> encoded, OutputStream output) throws IOException {
-        // TODO
-    	System.out.println(encoded.get(0));
-    	
+        // TODO    	
     	HuffmanNode current_node = this.root;
+    	int length = encoded.size() - 1;
     	
-    	for(int i=0; i<encoded.size(); i++) {
+    	for(int i=0; i<=length; i++) {
     		boolean navigate = encoded.get(i);
-    		
     		if(current_node.isLeafNode()) {
         		byte value = current_node.byteValue;
         		output.write(value);
-        		return;
+        		current_node = this.root;
+        		i--;
         	} else {
         		if(navigate == false) {
         			current_node = current_node.left;
+        			if(i == length) {
+        				byte value = current_node.byteValue;
+        				output.write(value);
+        			}
         		} else {
         			current_node = current_node.right;
+        			if(i == length) {
+        				byte value = current_node.byteValue;
+        				output.write(value);
+        			}
         		}
         	}
     	}
     	
     	
-    	output.write(110);
+//    	output.write(110);
     	
 //    	decoded(encoded, output);
     }
