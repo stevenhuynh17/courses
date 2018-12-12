@@ -57,9 +57,9 @@ public class EmployeeDataStore {
     		employees.add(new Employee(name, title, basePay, totalPay));
     		
     	}
-    	
-    	Collections.sort(employees);
     	input.close();
+    	Collections.sort(employees);
+    	
     }
 
     /**
@@ -69,6 +69,13 @@ public class EmployeeDataStore {
      */
     public Employee getEmployee(String name) {
         // TODO
+    	for(int i=0; i<employees.size(); i++) {
+    		String current = employees.get(i).name;
+    		
+    		if(current.equals(name)) {
+    			return employees.get(i);
+    		}
+    	}
         return null;
     }
 
@@ -84,6 +91,23 @@ public class EmployeeDataStore {
         // TODO
         // TODO: Make sure when you throw an IllegalQueryException that you include helpful debug information.
         //   Think about what a human seeing your error message would like to know when their program crashes.
-        return null;
+    	List<Employee> result = new LinkedList<Employee>();
+    	
+    	if(greaterThanName.compareTo(lessThanName) > 0) {
+    		String message = "First parameter cannot be alphabetically greater than the second parameter";
+    		throw new IllegalQueryException(message);
+    	}
+    	
+    	for(int i=0; i<employees.size(); i++) {
+    		Employee current = employees.get(i);
+    		int lower_bound = greaterThanName.compareTo(current.name);
+    		int upper_bound = lessThanName.compareTo(current.name);
+    		
+    		if(lower_bound < 0 && upper_bound > 0) {
+    			result.add(current);
+    		}
+    	}
+    	
+        return result;
     }
 }
