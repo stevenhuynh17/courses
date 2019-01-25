@@ -1,0 +1,22 @@
+package model;
+
+//Methods are to be protected
+public class OptionSet {
+	private Option opt [];
+	private String name;
+	
+	public OptionSet(String n, int size) {
+		opt = new Option[size];
+		name = n; 
+	}
+
+	public Option getOpt(int index) {
+		return opt[index];
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	
+}

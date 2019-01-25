@@ -1,0 +1,1 @@
+INDEX VERSION 1.127+/Users/StevenH/Desktop/Coding/deAnza/kbb1/.metadata/.plugins/org.eclipse.jdt.core

@@ -1,0 +1,23 @@
+package Adapter;
+
+import model.*;
+
+public abstract class proxyAutomobile {
+	private Automobile a1; 
+	
+	public void BuildAuto(String filename) {
+		
+	}
+	
+	public void printAuto(String modelName) {
+		
+	}
+	
+	public void updateOptionSetName(String modelName, String optionName, String option, float newPrice) {
+		
+	}
+	
+	public void updateOptionPrice(String modelName, String optionSetName, String newName) {
+		
+	}
+}

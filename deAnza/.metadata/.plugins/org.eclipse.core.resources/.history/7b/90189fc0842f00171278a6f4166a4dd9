@@ -1,0 +1,5 @@
+package Adapter;
+
+public abstract class BuildAuto extends proxyAutomobile implements CreateAuto, UpdateAuto{
+
+}

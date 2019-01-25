@@ -1,0 +1,23 @@
+package model;
+
+// Methods are to be protected
+public class Option {
+	private String name; 
+	private float price;
+	
+	protected String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	
+	
+	
+}

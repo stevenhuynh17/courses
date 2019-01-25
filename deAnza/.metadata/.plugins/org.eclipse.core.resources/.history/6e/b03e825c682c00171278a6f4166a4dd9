@@ -1,0 +1,37 @@
+package model;
+
+//Methods are to be protected
+public class OptionSet {
+	private Option opt [];
+	private String name;
+	
+	public OptionSet(String n, int size) {
+		this.opt = new Option[size];
+		this.name = n; 
+	}
+	
+	public void print() {
+		System.out.println("WHAT IS THIS?? " + this.opt[0]);
+	}
+	
+	public Option[] getOpt() {
+		return opt;
+	}
+
+	public void setOpt(String name, float price) {
+		opt[7].setName(name);
+		opt[1].setPrice(price);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+	
+	
+}

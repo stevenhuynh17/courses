@@ -1,0 +1,14 @@
+INDEX VERSION 1.127+/Users/StevenH/Desktop/Coding/deAnza/.metadata/.plugins/org.eclipse.jdt.core
+3558721723.index
+1412367577.index
+163742335.index
+608563286.index
+2573951307.index
+3041321501.index
+3288194385.index
+3122750965.index
+617752987.index
+3393950074.index
+3175916012.index
+2155503101.index
+589837391.index

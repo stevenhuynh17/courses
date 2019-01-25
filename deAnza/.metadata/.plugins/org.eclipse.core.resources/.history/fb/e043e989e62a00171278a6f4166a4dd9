@@ -1,0 +1,15 @@
+package driver;
+
+import model.*;
+import util.*;
+
+public class driver {
+	public static void main(String [] args) {
+		String file = "/Users/StevenH/Desktop/Coding/deAnza/kbb1/src/data.txt";
+		Automotive FordZTW = new util.FileIO().readFile(file);
+		FordZTW.print();
+		System.out.println();
+		OptionSet test = new OptionSet("Options", 5); 
+		System.out.println(test.getName());
+	}
+}

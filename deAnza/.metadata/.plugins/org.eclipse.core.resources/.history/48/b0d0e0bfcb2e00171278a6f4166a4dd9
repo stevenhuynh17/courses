@@ -1,0 +1,7 @@
+package Adapter;
+
+import model.*;
+
+public abstract class proxyAutomobile {
+	private Automobile a1; 
+}

@@ -1,0 +1,61 @@
+package model;
+
+import java.io.Serializable;
+import java.util.*;
+
+import Adapter.*;
+import util.FileIO;
+
+public class Automobile implements Serializable {
+	private String name;
+	private String baseprice; 
+	private OptionSet opset;
+
+	public Automobile (String name, String baseprice, OptionSet opset) {
+		this.name = name;
+		this.baseprice = baseprice;
+		this.opset = opset;
+		
+	}
+	
+	public Automobile buildAuto(String file) {
+	
+	}
+	
+	public void print() {
+		System.out.println("MODEL NAME: " + this.getName());
+		System.out.println("BASE PRICE: " + this.getBaseprice());
+		System.out.println("OPTIONS: ");
+		
+		for(int i = 0; i < this.opset.getOpt().length; i++) {
+			System.out.println("- " + this.opset.getOpt()[i].getName().trim() + ": " + this.opset.getOpt()[i].getPrice());
+		}
+	}
+
+	// Getters
+	public String getName() {
+		return name;
+	}
+
+	public String getBaseprice() {
+		return baseprice;
+	}
+	
+	public OptionSet getOpset() {
+		return opset;
+	}
+
+	// Setters 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setBaseprice(String baseprice) {
+		this.baseprice = baseprice;
+	}
+
+	public void setOpset(OptionSet opset) {
+		this.opset = opset;
+	}
+	
+}

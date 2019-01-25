@@ -1,0 +1,26 @@
+package model;
+
+// Methods are to be protected
+public class Option {
+	private String name; 
+	private float price;
+	
+	public Option(String name, float price) {
+		
+		super();
+		this.name = name;
+		this.price = price;
+		System.out.println("CREATED OPTION WITH: " + name + " " + price);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public float getPrice() {
+		return price;
+	} 
+	
+	
+	
+}

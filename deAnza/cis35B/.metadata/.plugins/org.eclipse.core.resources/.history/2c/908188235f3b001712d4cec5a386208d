@@ -1,0 +1,25 @@
+package exception;
+
+import java.util.Calendar;
+
+import Adapter.*;
+
+public class AutoException extends Exception implements FixAuto{
+	private int errorno;
+	private String errormsg;
+	
+	public AutoException(int errno) {
+		fix(errno);
+	}
+	
+	public void fix(int errno) {
+		Fix1to100 f1 = new Fix1to100();
+		
+		switch(errno) {
+		case 1: 
+			System.out.println("TESTING WORKS");
+			f1.fix1(errno);
+			break;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="model.Automotive"/>
+<fullyQualifiedTypeName name="javax.rmi.CORBA.Util"/>
+<fullyQualifiedTypeName name="model.OptionSet"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.sql.Array"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="model.Automobile"/>
+<fullyQualifiedTypeName name="Adapter.CreateAuto"/>
+<fullyQualifiedTypeName name="Adapter.BuildAuto"/>
+<fullyQualifiedTypeName name="util.FileIO"/>
+</qualifiedTypeNameHistroy>

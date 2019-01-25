@@ -1,0 +1,8 @@
+package model;
+
+// Methods are to be protected
+public class Option {
+	private String name; 
+	private float price;
+	
+}

@@ -1,0 +1,30 @@
+package Adapter;
+
+import model.*;
+import util.FileIO;
+
+public abstract class proxyAutomobile {
+	private Automobile a1; 
+	
+	public void BuildAuto(String filename) {
+		a1 = FileIO.readFile(filename);
+	}
+	
+	public void printAuto(String modelName) {
+		System.out.println("MODEL NAME: " + a1.getName());
+		System.out.println("BASE PRICE: " + a1.getBaseprice());
+		System.out.println("OPTIONS: ");
+		
+		for(int i = 0; i < a1.getOpset().getOpt().length; i++) {
+			System.out.println("- " + this.opset.getOpt()[i].getName().trim() + ": " + this.opset.getOpt()[i].getPrice());
+		}
+	}
+	
+	public void updateOptionSetName(String modelName, String optionName, String option, float newPrice) {
+		
+	}
+	
+	public void updateOptionPrice(String modelName, String optionSetName, String newName) {
+		
+	}
+}

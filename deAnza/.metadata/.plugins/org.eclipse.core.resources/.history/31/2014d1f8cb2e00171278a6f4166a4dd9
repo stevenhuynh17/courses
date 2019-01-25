@@ -1,0 +1,14 @@
+package Adapter;
+
+import model.*;
+
+public abstract class proxyAutomobile {
+	private Automobile a1; 
+	
+	public void BuildAuto(String filename) {
+	}
+	
+	public void printAuto(String modelName) {
+		
+	}
+}

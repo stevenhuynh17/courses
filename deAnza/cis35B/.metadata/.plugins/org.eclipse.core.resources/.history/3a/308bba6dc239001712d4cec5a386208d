@@ -1,0 +1,10 @@
+package Adapter;
+
+public class BuildAuto extends proxyAutomobile implements CreateAuto, UpdateAuto{
+	private String fileName;
+	
+	BuildAuto(String fileName) {
+		super();
+		this.fileName = fileName;
+	}
+}

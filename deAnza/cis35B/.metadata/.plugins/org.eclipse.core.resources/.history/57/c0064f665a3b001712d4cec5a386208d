@@ -1,0 +1,27 @@
+package driver;
+
+import java.util.Calendar;
+
+import Adapter.*;
+import exception.*;
+import model.*;
+import util.*;
+
+public class driver {
+	public static void main(String [] args) {
+		boolean problemFixed = false; 
+		String file = "/Users/StevenH/Desktop/Coding/deAnza/kbb1/src/rowData.xt";
+		BuildAuto FordZTW = new BuildAuto(file);
+		
+		// I want to check to see if the file will be read at all here. 
+		try {
+			FordZTW.BuildAuto(file);	
+		} catch(AutoException e) {
+			
+		} 
+		
+//		FordZTW.printAuto(null);
+//		FordZTW.updateOptionSetName("Ford Wagon ZTW", "Car1", "Ford Sedan");
+//		FordZTW.updateOptionPrice("Ford Wagon ZTW", "Transmission", null, -815);
+	}
+}

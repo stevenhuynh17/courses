@@ -1,0 +1,17 @@
+package driver;
+
+import Adapter.*;
+import model.*;
+import util.*;
+
+public class driver {
+	public static void main(String [] args) {
+		String file = "/Users/StevenH/Desktop/Coding/deAnza/kbb1/src/rowData.txt";
+		CreateAuto a1 = new Automobile(file, file, null);
+		Automobile FordZTW = FileIO.readFile(file);
+		FordZTW.print();
+		util.FileIO.Serialize(FordZTW);;
+		Automobile newFordZTW = util.FileIO.Deserialize("Ford.dat");
+		newFordZTW.print();
+	}
+}

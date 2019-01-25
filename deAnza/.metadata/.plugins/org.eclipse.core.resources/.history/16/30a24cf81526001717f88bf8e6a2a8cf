@@ -1,0 +1,13 @@
+package model;
+
+public abstract class Auto implements CreateAuto{
+	
+	public void BuildAuto() {
+		
+	}
+
+	public void BuildAuto(String a1) {
+		// TODO Auto-generated method stub
+		System.out.println("Building vehicle...");
+	}
+}
